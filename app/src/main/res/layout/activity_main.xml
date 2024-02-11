@@ -8,10 +8,10 @@
     android:padding="25dp">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textoAltura"
+        android:id="@+id/heightText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/altura"
+        android:text="@string/height"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,17 +19,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/alturaResult"
+        android:id="@+id/heightResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1.70 cm"
+        android:text="@string/height_result_text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoAltura" />
+        app:layout_constraintTop_toBottomOf="@+id/heightText" />
 
     <com.google.android.material.slider.Slider
-        android:id="@+id/alturaSlider"
+        android:id="@+id/heightSlider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:value="170"
@@ -40,56 +40,66 @@
         app:tickVisible="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alturaResult" />
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSumar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:textSize="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pesoResult" />
+        app:layout_constraintTop_toBottomOf="@+id/heightResult" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/pesoResult"
+        android:id="@+id/weightText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="@string/weight"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/weightResult"
+        app:layout_constraintTop_toBottomOf="@id/heightSlider" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        android:contentDescription="@string/btn_add_weight_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weightText"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/weightResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/weight_result_text"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnRestar"
-        app:layout_constraintStart_toEndOf="@+id/btnSumar"
-        app:layout_constraintTop_toBottomOf="@+id/alturaSlider" />
+        app:layout_constraintEnd_toStartOf="@+id/btnSub"
+        app:layout_constraintStart_toEndOf="@+id/btnAdd"
+        app:layout_constraintTop_toBottomOf="@+id/weightText"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnRestar"
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Add"
-        android:text="-"
-        android:textSize="32dp"
+        android:src="@drawable/ic_sub"
+        android:contentDescription="@string/btn_sub_weight_description"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alturaSlider" />
+        app:layout_constraintTop_toBottomOf="@+id/weightText"/>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/resultadoIMC"
+        android:id="@+id/finalResult"
         tools:text="50"
         android:textSize="40sp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/btnCalcularIMC"
+        app:layout_constraintBottom_toTopOf="@id/btnCalculation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCalcularIMC"
+        android:id="@+id/btnCalculation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_calcular_imc"
+        android:text="@string/btn_calculation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

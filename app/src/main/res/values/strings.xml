@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">Calculadora IMC</string>
-    <string name="altura">Altura</string>
-    <string name="btn_calcular_imc">Calcular IMC</string>
+    <string name="app_name">BMI Calculator</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="height_result_text">%1$s m</string>
+    <string name="weight_result_text">%1$s kg</string>
+    <string name="btn_calculation">Calculate BMI</string>
+    <string name="btn_add_weight_description">Add weight</string>
+    <string name="btn_sub_weight_description">Subtract weight</string>
 </resources>
