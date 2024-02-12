@@ -14,21 +14,22 @@ class MainActivity : AppCompatActivity() {
 
     // Declaring the needed variables before the onCreate
 
-    lateinit var heightResult:AppCompatTextView
-    lateinit var heightSlider:Slider
+    lateinit var heightResult: AppCompatTextView
+    lateinit var heightSlider: Slider
 
-    var height:Float = 1.70F
+    var height: Float = 1.70F
 
-    lateinit var weightResult:AppCompatTextView
-    lateinit var btnAdd:AppCompatImageButton
-    lateinit var btnSub:AppCompatImageButton
+    lateinit var weightResult: AppCompatTextView
+    lateinit var btnAdd: AppCompatImageButton
+    lateinit var btnSub: AppCompatImageButton
 
-    var weight:Int = 60
+    var weight: Int = 60
 
-    lateinit var btnCalculation:AppCompatButton
-    lateinit var finalResult:AppCompatTextView
+    lateinit var btnCalculation: AppCompatButton
+    lateinit var finalResult: AppCompatTextView
+    lateinit var statusText: AppCompatTextView
 
-    var calculation:Float = 0F
+    var calculation: Float = 0F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         btnCalculation = findViewById(R.id.btnCalculation)
         finalResult = findViewById(R.id.finalResult)
+        statusText = findViewById(R.id.statusText)
 
         // Call the functions to execute them on the application
 
@@ -57,13 +59,19 @@ class MainActivity : AppCompatActivity() {
 
         // Default height on opening the application
 
-        heightResult.text = String.format(getString(R.string.height_result_text), height.toBigDecimal().setScale(2))
+        heightResult.text =
+            String.format(
+                getString(R.string.height_result_text),
+                height.toBigDecimal().setScale(2))
 
         // Update height while move the slide
 
         heightSlider.addOnChangeListener { _, value, _ ->
             height = value / 100
-            heightResult.text = String.format(getString(R.string.height_result_text), height.toBigDecimal().setScale(2))
+            heightResult.text = String.format(
+                getString(R.string.height_result_text),
+                height.toBigDecimal().setScale(2)
+            )
         }
     }
 
@@ -76,12 +84,12 @@ class MainActivity : AppCompatActivity() {
         // Addition an Subtraction buttons to choose the weight
 
         btnAdd.setOnClickListener() {
-            weight ++
+            weight++
             weightResult.text = String.format(getString(R.string.weight_result_text), weight)
         }
 
         btnSub.setOnClickListener() {
-            weight --
+            weight--
             weightResult.text = String.format(getString(R.string.weight_result_text), weight)
         }
     }
@@ -94,10 +102,15 @@ class MainActivity : AppCompatActivity() {
             calculation = weight / height.pow(2)
             val calculationRounded = calculation.toBigDecimal().setScale(1, RoundingMode.HALF_EVEN)
             finalResult.text = calculationRounded.toFloat().toString()
+
+            // Displaying the Status Text depending of the BMI result
+
+            statusText.text = when (calculationRounded.toFloat()) {
+                in 0F..18.4F -> "Underweight"
+                in 18.4F..24.9F -> "Healthy Weight"
+                in 24.9F..29.9F -> "Overweight"
+                else -> "Obesity"
+            }
         }
-    }
-
-    private fun bmiInformationText() {
-
     }
 }

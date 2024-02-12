@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity"
-    android:padding="25dp">
+    android:background="@color/my_dark_blue"
+    android:padding="25dp"
+    tools:context=".activities.MainActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/heightText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
         android:text="@string/height"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/my_white"
+        android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,84 +23,117 @@
         android:id="@+id/heightResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
         android:text="@string/height_result_text"
-        android:textSize="24sp"
+        android:textColor="@color/my_white"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heightText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.slider.Slider
-        android:id="@+id/heightSlider"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/heightCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:value="170"
-        android:valueFrom="120"
-        android:valueTo="220"
-        android:stepSize="1"
-        app:labelBehavior="gone"
-        app:tickVisible="false"
+        app:cardBackgroundColor="@color/my_white"
+        app:cardCornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heightResult" />
+        app:layout_constraintTop_toBottomOf="@id/heightText">
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/heightSlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/my_white"
+            android:paddingVertical="22dp"
+            android:stepSize="1"
+            android:value="170"
+            android:valueFrom="120"
+            android:valueTo="220"
+            app:haloColor="@color/my_dark_blue"
+            app:labelBehavior="gone"
+            app:thumbColor="@color/my_light_blue"
+            app:tickVisible="false"
+            app:trackColor="@color/my_dark_blue" />
+
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/weightText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:paddingBottom="8dp"
         android:text="@string/weight"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/my_white"
+        android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/weightResult"
-        app:layout_constraintTop_toBottomOf="@id/heightSlider" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_add"
-        android:contentDescription="@string/btn_add_weight_description"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weightText"/>
+        app:layout_constraintTop_toBottomOf="@id/heightCard" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/weightResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:paddingBottom="8dp"
         android:text="@string/weight_result_text"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnSub"
-        app:layout_constraintStart_toEndOf="@+id/btnAdd"
-        app:layout_constraintTop_toBottomOf="@+id/weightText"/>
+        android:textColor="@color/my_white"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/heightCard" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnAdd"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/my_light_blue"
+        android:contentDescription="@string/btn_add_weight_description"
+        android:src="@drawable/ic_add"
+        app:layout_constraintEnd_toStartOf="@id/btnSub"
+        app:layout_constraintTop_toTopOf="@id/weightText" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnSub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_sub"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/my_light_blue"
         android:contentDescription="@string/btn_sub_weight_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weightText"/>
+        android:src="@drawable/ic_sub"
+        app:layout_constraintEnd_toStartOf="@id/weightResult"
+        app:layout_constraintTop_toTopOf="@id/weightText" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/finalResult"
-        tools:text="50"
-        android:textSize="40sp"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/btnCalculation"
-        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        android:textColor="@color/my_white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@id/statusText"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="50" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/statusText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:textColor="@color/my_white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/btnCalculation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Status text" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCalculation"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_calculation"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
