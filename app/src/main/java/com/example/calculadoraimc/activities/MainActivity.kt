@@ -14,22 +14,22 @@ class MainActivity : AppCompatActivity() {
 
     // Declaring the needed variables before the onCreate
 
-    lateinit var heightResult: AppCompatTextView
-    lateinit var heightSlider: Slider
+    private lateinit var heightResult: AppCompatTextView
+    private lateinit var heightSlider: Slider
 
-    var height: Float = 1.70F
+    private var height: Float = 1.70F
 
-    lateinit var weightResult: AppCompatTextView
-    lateinit var btnAdd: AppCompatImageButton
-    lateinit var btnSub: AppCompatImageButton
+    private lateinit var weightResult: AppCompatTextView
+    private lateinit var btnAdd: AppCompatImageButton
+    private lateinit var btnSub: AppCompatImageButton
 
-    var weight: Int = 60
+    private var weight: Int = 60
 
-    lateinit var btnCalculation: AppCompatButton
-    lateinit var finalResult: AppCompatTextView
-    lateinit var statusText: AppCompatTextView
+    private lateinit var btnCalculation: AppCompatButton
+    private lateinit var finalResult: AppCompatTextView
+    private lateinit var statusText: AppCompatTextView
 
-    var calculation: Float = 0F
+    private var calculation: Float = 0F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,12 +83,12 @@ class MainActivity : AppCompatActivity() {
 
         // Addition an Subtraction buttons to choose the weight
 
-        btnAdd.setOnClickListener() {
+        btnAdd.setOnClickListener {
             weight++
             weightResult.text = String.format(getString(R.string.weight_result_text), weight)
         }
 
-        btnSub.setOnClickListener() {
+        btnSub.setOnClickListener {
             weight--
             weightResult.text = String.format(getString(R.string.weight_result_text), weight)
         }
@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
 
         // Final calculation to display result
 
-        btnCalculation.setOnClickListener() {
+        btnCalculation.setOnClickListener {
             calculation = weight / height.pow(2)
             val calculationRounded = calculation.toBigDecimal().setScale(1, RoundingMode.HALF_EVEN)
             finalResult.text = calculationRounded.toFloat().toString()
