@@ -15,7 +15,7 @@
     </style>
 
     <!--
-    <style name="CommonCardView">
+    <style name="CardViewCommon" parent="CardView">
         <item name="cardCornerRadius">20dp</item>
         <item name="cardBackgroundColor">@color/xxx</item>
     </style>-->
