@@ -8,6 +8,8 @@
     android:padding="25dp"
     tools:context=".activities.MainActivity">
 
+    <!-- Height card -->
+
     <androidx.cardview.widget.CardView
         android:id="@+id/heightCard"
         android:layout_width="match_parent"
@@ -63,6 +65,8 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
+
+    <!-- Weight card -->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/weightCard"
@@ -134,6 +138,8 @@
 
     </androidx.cardview.widget.CardView>
 
+    <!-- Result card -->
+
     <androidx.cardview.widget.CardView
         android:id="@+id/resultCard"
         android:layout_width="match_parent"
@@ -178,6 +184,8 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
+
+    <!-- Button card -->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/buttonCard"
