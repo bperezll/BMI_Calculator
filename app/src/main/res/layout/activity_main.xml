@@ -68,7 +68,7 @@
         android:id="@+id/weightCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginVertical="20dp"
         app:cardBackgroundColor="@color/my_normal"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,8 +95,8 @@
                 android:id="@+id/weightResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="6dp"
                 android:gravity="center"
+                android:paddingBottom="6dp"
                 android:text="@string/weight_result_text"
                 android:textColor="@color/my_white"
                 android:textSize="28sp"
@@ -105,24 +105,25 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/btnAdd"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@color/my_red"
+                    android:background="@drawable/ic_circle"
+                    android:backgroundTint="@color/my_red"
                     android:contentDescription="@string/btn_add_weight_description"
                     android:src="@drawable/ic_add"
-                    android:tint="@color/my_white"
-                    android:layout_marginEnd="16dp"/>
+                    android:tint="@color/my_white" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/btnSub"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@color/my_red"
+                    android:background="@drawable/ic_circle"
+                    android:backgroundTint="@color/my_red"
                     android:contentDescription="@string/btn_sub_weight_description"
                     android:src="@drawable/ic_sub"
                     android:tint="@color/my_white" />
@@ -133,42 +134,72 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/finalResult"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/resultCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/my_white"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@id/statusText"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="20dp"
+        app:cardBackgroundColor="@color/my_normal"
+        app:cardCornerRadius="20dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@id/buttonCard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="50" />
+        app:layout_constraintTop_toBottomOf="@id/weightCard">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/statusText"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/finalResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/my_white"
+                android:textSize="80sp"
+                android:textStyle="bold"
+                tools:text="50" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/statusText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:textColor="@color/my_white"
+                android:textSize="32sp"
+                tools:text="Status text" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/buttonCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
-        android:textColor="@color/my_white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/btnCalculation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Status text" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCalculation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_calculation"
-        android:textStyle="bold"
-        android:textColor="@color/my_white"
+        android:background="@color/my_red"
+        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/my_red"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCalculation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/my_red"
+            android:padding="14dp"
+            android:text="@string/btn_calculation"
+            android:textColor="@color/my_white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
